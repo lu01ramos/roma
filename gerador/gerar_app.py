@@ -301,12 +301,20 @@ for key, p in L.items():
     grupos = p.get("topicos") or ([{"botao": p.get("extras_botao", "História"), "secoes": p["extras"]}] if p.get("extras") else [])
     for gi, g in enumerate(grupos):
         b += go(f"{key}-extras-{gi}", e(g["botao"]) + " ›", "btn gold wide")
+    if p.get("tipo") == "restaurante":
+        for r in res_by_ref.get(key, []):
+            nome_r = p["nome"] if p.get("endereco") else "a definir"
+            b += (f'<div class="band">Sua reserva</div><div class="reserva">'
+                  f'<div><span class="kick muted">Restaurante</span><p>{e(nome_r)}</p></div>'
+                  f'<div><span class="kick muted">Endereço</span><p>{e(p.get("endereco") or "a definir")}</p></div>'
+                  f'<div><span class="kick muted">Reserva</span><p>{e(r["data"])} {pill(r["status"])}</p></div>'
+                  + (f'<p class="small muted">{e(r["detalhe"])}</p>' if r.get("detalhe") else "") + '</div>')
     if p.get("sobre"): b += f'<div class="band">História</div><div class="serif">{paras(p["sobre"])}</div>'
     if p.get("destaques"): b += f'<div class="band">Não perca</div><div class="serif ital">{paras(p["destaques"])}</div>'
     if p.get("alerta"): b += f'<div class="alert"><div class="kick wine">Atenção</div>{paras(p["alerta"])}</div>'
     for lab, k in (("Endereço", "endereco"), ("Horário", "horario"), ("Ingresso", "ingresso"), ("Dica", "dica")):
         if p.get(k): b += f'<div class="band">{lab}</div><div class="small">{paras(p[k])}</div>'
-    for r in res_by_ref.get(key, []):
+    for r in ([] if p.get("tipo") == "restaurante" else res_by_ref.get(key, [])):
         b += (f'<div class="band">Reserva</div><div class="small"><p>{pill(r["status"])} {e(r["titulo"])}'
               + (f' — {e(r["detalhe"])}' if r.get("detalhe") else "") + "</p></div>")
     if p.get("links"):
