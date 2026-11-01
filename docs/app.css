@@ -150,3 +150,6 @@ figcaption{font:italic 400 12.5px/1.4 Lora,serif;color:var(--muted);margin-top:6
 .kickrow{display:flex;justify-content:space-between;align-items:center;gap:10px}
 .kickrow .kick{min-width:0}
 .wiki{flex:none;font:500 10.5px/1 Poppins,sans-serif;letter-spacing:.1em;text-transform:uppercase;color:var(--wine);border:1px solid var(--gold);border-radius:14px;padding:7px 10px;margin-bottom:4px;background:var(--white)}
+.reserva{border:1px solid var(--gold);background:var(--white);border-radius:8px;padding:12px 14px;display:flex;flex-direction:column;gap:6px}
+.reserva p{margin:0;font-weight:400}
+.reserva .kick{margin:0}
