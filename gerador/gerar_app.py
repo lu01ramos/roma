@@ -294,7 +294,8 @@ for key, p in L.items():
     dias_ref = ref_dias.get(key, [])
     kick = "Reserva" if p.get("tipo") == "restaurante" else ("Sugestão" if p.get("tipo") == "sugestao" else "Atração")
     if dias_ref: kick += " · " + " · ".join(d["data"] for d in dias_ref)
-    b = f'<div class="wrap"><div class="kick">{e(kick)}</div><h2 class="h">{e(p["nome"])}</h2>{gallery(p)}'
+    wk = ext(p["wikipedia"], "Wikipédia ›", "wiki") if p.get("wikipedia") else ""
+    b = f'<div class="wrap"><div class="kickrow"><div class="kick">{e(kick)}</div>{wk}</div><h2 class="h">{e(p["nome"])}</h2>{gallery(p)}'
     b += ('<div class="btn2">' + ext(gmaps(p.get("mapa") or p.get("endereco") or p["nome"] + " Roma"), "Como chegar", "btn")
           + ext(gimg(p["nome"] + " Roma"), "Mais fotos", "btn line") + "</div>")
     grupos = p.get("topicos") or ([{"botao": p.get("extras_botao", "História"), "secoes": p["extras"]}] if p.get("extras") else [])
