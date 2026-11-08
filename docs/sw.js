@@ -1,5 +1,5 @@
 // Guarda o guia inteiro no celular para funcionar sem internet.
-var VERSAO = "roma-9494cac0ab";
+var VERSAO = "roma-ca5a36c995";
 var ARQUIVOS = [
 "./",
 "app.css",
@@ -64,7 +64,6 @@ var ARQUIVOS = [
 "fotos/priscila-virgem.jpg",
 "fotos/quatro-fiumi.jpg",
 "fotos/rosso.jpg",
-"fotos/san-clemente.jpg",
 "fotos/santa-maria-maggiore.jpg",
 "fotos/sao-joao-latrao.jpg",
 "fotos/scavi.jpg",
