@@ -1,5 +1,5 @@
 // Guarda o guia inteiro no celular para funcionar sem internet.
-var VERSAO = "roma-ca5a36c995";
+var VERSAO = "roma-d72c5c0230";
 var ARQUIVOS = [
 "./",
 "app.css",
