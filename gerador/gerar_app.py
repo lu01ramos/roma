@@ -298,6 +298,8 @@ for key, p in L.items():
     b = f'<div class="wrap"><div class="kickrow"><div class="kick">{e(kick)}</div>{wk}</div><h2 class="h">{e(p["nome"])}</h2>{gallery(p)}'
     b += ('<div class="btn2">' + ext(gmaps(p.get("mapa") or p.get("endereco") or p["nome"] + " Roma"), "Como chegar", "btn")
           + ext(gimg(p["nome"] + " Roma"), "Mais fotos", "btn line") + "</div>")
+    if p.get("comprar") and p["comprar"].get("url"):
+        b += ext(p["comprar"]["url"], e(p["comprar"].get("rotulo") or "Comprar") + " ›", "btn wide")
     grupos = p.get("topicos") or ([{"botao": p.get("extras_botao", "História"), "secoes": p["extras"]}] if p.get("extras") else [])
     for gi, g in enumerate(grupos):
         b += go(f"{key}-extras-{gi}", e(g["botao"]) + " ›", "btn gold wide")
